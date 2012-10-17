@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cpeDescription>
+	<collectionReader>
+		<collectionIterator>
+			<descriptor>
+				<import location="../resources/descriptors/FileReader.xml" />
+			</descriptor>
+		</collectionIterator>
+	</collectionReader>
+	<casProcessors casPoolSize="1" processingUnitThreadCount="1">
+		<casProcessor deployment="integrated"
+			name="Gene Named Entity Recognizer">
+			<descriptor>
+				<import location="../resources/descriptors/GeneNamedEntityRecognizerDescriptor.xml" />
+			</descriptor>
+			<deploymentParameters />
+			<filter></filter>
+			<errorHandling>
+				<errorRateThreshold action="terminate" value="100/1000" />
+				<maxConsecutiveRestarts action="terminate"
+					value="30" />
+				<timeout max="100000" />
+			</errorHandling>
+			<checkpoint batch="10000" />
+		</casProcessor>
+		<casProcessor deployment="integrated" name="Output Writer CAS Consumer">
+			<descriptor>
+				<import location="../resources/descriptors/OutputWriterCasConsumer.xml" />
+			</descriptor>
+			<deploymentParameters />
+			<filter></filter>
+			<errorHandling>
+				<errorRateThreshold action="terminate" value="100/1000" />
+				<maxConsecutiveRestarts action="terminate"
+					value="30" />
+				<timeout max="10000" />
+			</errorHandling>
+			<checkpoint batch="10000" />
+		</casProcessor>
+	</casProcessors>
+	<cpeConfig>
+		<numToProcess>20</numToProcess>
+		<deployAs>immediate</deployAs>
+		<checkpoint file="" time="300000" />
+		<timerImpl></timerImpl>
+	</cpeConfig>
+</cpeDescription>
