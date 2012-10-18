@@ -2,7 +2,6 @@ package edu.cmu.lti.collectionReader;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 
 import org.apache.uima.cas.CAS;
 import org.apache.uima.cas.CASException;
@@ -28,8 +27,6 @@ public class FileReader extends CollectionReader_ImplBase {
    */
   public static final String PARAM_INPUTFILE = "InputFile";
 
-  private ArrayList<File> mFiles;
-
   private String line;
 
   private int linesRead;
@@ -49,7 +46,7 @@ public class FileReader extends CollectionReader_ImplBase {
       if (text != null) {
         lines = text.split("\n");
         numOfLines = lines.length;
-        //System.out.println("Number of lines to be read:" + numOfLines);
+        // System.out.println("Number of lines to be read:" + numOfLines);
         linesRead = 0;
       } else {
         throw new ResourceInitializationException(
@@ -82,6 +79,7 @@ public class FileReader extends CollectionReader_ImplBase {
     }
 
     line = lines[linesRead];
+    //System.out.println("reading line number:"+linesRead);
     linesRead++;
     // put text in CAS
     jcas.setDocumentText(line);

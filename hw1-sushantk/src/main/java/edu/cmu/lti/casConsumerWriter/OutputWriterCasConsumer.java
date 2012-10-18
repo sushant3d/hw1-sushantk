@@ -16,11 +16,11 @@ import edu.cmu.lti.type.NamedEntity;
 import edu.cmu.lti.type.Sentence;
 
 /**
- * A simple CAS consumer that writes the CAS to XMI format.
+ * A simple CAS consumer that writes the CAS to desired format in outputFile.
  * <p>
  * This CAS Consumer takes one parameter:
  * <ul>
- * <li><code>OutputDirectory</code> - path to directory into which output files will be written</li>
+ * <li><code>OutputFile</code> - path to file into which output will be written</li>
  * </ul>
  */
 public class OutputWriterCasConsumer extends CasConsumer_ImplBase {
@@ -84,8 +84,9 @@ public class OutputWriterCasConsumer extends CasConsumer_ImplBase {
           outputWriter.write(sourceId + "|" + Integer.toString(begin) + " " + Integer.toString(end)
                   + "|" + mention + "\n");
           outputWriter.close();
-          System.out.println(sourceId + "|" + Integer.toString(begin) + " " + Integer.toString(end)
-                  + "|" + mention);
+          // System.out.println(sourceId + "|" + Integer.toString(begin) + " " +
+          // Integer.toString(end)
+          // + "|" + mention + "|" + ne.getNamedEntityType());
         } catch (Exception e) {
           System.out.println(e);
         }

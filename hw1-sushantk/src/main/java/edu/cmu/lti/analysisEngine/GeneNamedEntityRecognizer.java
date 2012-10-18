@@ -21,7 +21,10 @@ import edu.cmu.lti.type.Sentence;
 
 /**
  * @author Sushant
- *
+ * 
+ * A Named Entity Recognizer for identifying Gene mentions
+ * using LingPipe NLP toolkit and the HMM trained model
+ * provided with the source release with LingPipe
  */
 public class GeneNamedEntityRecognizer extends JCasAnnotator_ImplBase {
 
@@ -31,7 +34,7 @@ public class GeneNamedEntityRecognizer extends JCasAnnotator_ImplBase {
 
   private String modelFilePath = "";
 
-  /** 
+  /**
    * @see org.apache.uima.analysis_component.AnalysisComponent_ImplBase#initialize(org.apache.uima.UimaContext)
    */
   @Override
@@ -40,7 +43,7 @@ public class GeneNamedEntityRecognizer extends JCasAnnotator_ImplBase {
     modelFilePath = (String) context.getConfigParameterValue(MODEL_FILE);
 
     File modelFile = new File(this.modelFilePath);
-    System.out.println("Reading chunker from file=" + modelFile);
+    // System.out.println("Reading chunker from file=" + modelFile);
     try {
       this.chunker = (Chunker) AbstractExternalizable.readObject(modelFile);
     } catch (Exception e) {
@@ -58,12 +61,12 @@ public class GeneNamedEntityRecognizer extends JCasAnnotator_ImplBase {
     String sourceId = source.substring(0, source.indexOf(" "));
     String sent = source.substring(source.indexOf(" ") + 1);
 
-    System.out.println("source: " + sourceId + " - " + sent);
+    // System.out.println("source: " + sourceId + " - " + sent);
     Chunking chunking = chunker.chunk(sent);
-    System.out.println("Chunking=" + chunking);
+    // System.out.println("Chunking=" + chunking);
     List<NamedEntity> neList = new ArrayList<NamedEntity>();
     for (Chunk chunk : chunking.chunkSet()) {
-      System.out.println(sent.substring(chunk.start(), chunk.end()));
+      // System.out.println(sent.substring(chunk.start(), chunk.end()));
       // create NamedEntity
       NamedEntity ne = new NamedEntity(jCas);
       String mention = sent.substring(chunk.start(), chunk.end());

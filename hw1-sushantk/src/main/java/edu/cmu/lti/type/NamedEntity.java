@@ -11,8 +11,8 @@ import org.apache.uima.jcas.tcas.Annotation;
 
 
 /** 
- * Updated by JCasGen Tue Oct 16 03:39:19 EDT 2012
- * XML source: C:/Personal/workspace/git/hw1-sushantk/hw1-sushantk/src/main/resources/descriptors/GeneNamedEntityRecognizerDescriptor.xml
+ * Updated by JCasGen Wed Oct 17 22:31:50 EDT 2012
+ * XML source: C:/Personal/workspace/git/hw1-sushantk/hw1-sushantk/src/main/resources/descriptors/NamedEntityDescriptor.xml
  * @generated */
 public class NamedEntity extends Annotation {
   /** @generated

@@ -19,7 +19,7 @@
       <nameValuePair>
         <name>OutputFile</name>
         <value>
-          <string>src/main/resources/data/sample.sushantk.out</string>
+          <string>hw1-sushantk.out</string>
         </value>
       </nameValuePair>
     </configurationParameterSettings>
@@ -28,6 +28,8 @@
         <import location="SentenceDescriptor.xml"/>
       </imports>
     </typeSystemDescription>
+    <typePriorities/>
+    <fsIndexCollection/>
     <capabilities>
       <capability>
         <inputs>
